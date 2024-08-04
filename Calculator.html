@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculator</title>
+    <link rel="stylesheet" href="cal.css">
+</head>
+<body>
+  
+  <div class="title">
+    <h1>Calculator</h1>
+
+  
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="buttons">
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="Add()">+</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="Sub()">-</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="Mul()">*</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="Div()">/</button>
+        </div>
+    </div>
+
+  </div>
+    <script>
+   function appendNumber(num) {
+  document.getElementById('display').value += num;
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+  op=0;
+}
+let fisave;
+function Add(){
+
+   fisave= document.getElementById('display').value;
+   document.getElementById('display').value='';
+   op = 1;
+
+}
+function Sub(){
+
+  fisave= document.getElementById('display').value;
+  document.getElementById('display').value='';
+  op = 2;
+ 
+}
+function Mul(){
+
+  fisave= document.getElementById('display').value;
+  document.getElementById('display').value='';
+  op = 3;
+ 
+}
+function Div(){
+
+  fisave= document.getElementById('display').value;
+  document.getElementById('display').value='';
+  op = 4;
+ 
+}
+function calculate() {
+  let sesave=document.getElementById('display').value;
+  if(op==1){
+    document.getElementById('display').value=parseInt(fisave)+parseInt(sesave)
+
+  } else if(op==2){
+    document.getElementById('display').value=parseInt(fisave)-parseInt(sesave)
+
+  }else if(op==3){
+    document.getElementById('display').value=parseInt(fisave)*parseInt(sesave)
+
+  }else if(op==4){
+    document.getElementById('display').value=parseInt(fisave)/parseInt(sesave)
+
+  }
+  else{
+    document.getElementById('display').value="Invalid Input";
+  //  clearDisplay()
+
+  }
+  
+
+
+}
+
+
+
+    </script>
+
+</body>
+</html>
